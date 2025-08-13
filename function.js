@@ -12,7 +12,13 @@ function myFunction() {
   // Get user input value
   const getValue = input.value;
 
-  const getuserinput = document.createTextNode(getValue);
+  const userInput = document.createTextNode(getValue);
+
+  // Create mark as done function
+  // Need to fix it
+  const markDone = document.createElement('button');
+  markDone.textContent = 'Done';
+  markDone.style.marginLeft = '15px;';
 
   // Create remove button ref not top need inside function
   const removeButton = document.createElement('button');
@@ -26,8 +32,8 @@ function myFunction() {
   });
 
   // Get uservalue with li and display using appendChild
-  // display button remove
-  node.appendChild(getuserinput);
+  // Display button remove
+  node.appendChild(userInput);
   node.appendChild(removeButton);
 
   // Get all input then display id listText
@@ -37,4 +43,4 @@ function myFunction() {
   input.value = '';
 }
 
-// bug fixed if display button remove its remove all item list not specific
+// i want to create button and when button is clicked the function run the item in list mark as done or using del in html tag
