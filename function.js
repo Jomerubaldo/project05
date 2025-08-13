@@ -2,7 +2,6 @@
 const input = document.querySelector('#inputText');
 const button = document.querySelector('#addText');
 const list = document.querySelector('#listText');
-const removeButton = document.createElement('button');
 
 // Function add
 button.addEventListener('click', myFunction);
@@ -15,13 +14,15 @@ function myFunction() {
 
   const getuserinput = document.createTextNode(getValue);
 
+  // Create remove button ref not top need inside function
+  const removeButton = document.createElement('button');
   // Create button for remove and style
   removeButton.textContent = 'Remove';
   removeButton.style.marginLeft = '15px';
 
   // function remove
-  removeButton.addEventListener('click', function () {
-    node.remove();
+  removeButton.addEventListener('click', () => {
+    list.removeChild(node);
   });
 
   // Get uservalue with li and display using appendChild
