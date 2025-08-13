@@ -2,8 +2,9 @@
 const input = document.querySelector('#inputText');
 const button = document.querySelector('#addText');
 const list = document.querySelector('#listText');
+const removeButton = document.createElement('button');
 
-// Function
+// Function add
 button.addEventListener('click', myFunction);
 function myFunction() {
   // Create li list
@@ -12,22 +13,27 @@ function myFunction() {
   // Get user input value
   const getValue = input.value;
 
-  // Do the function if user have value else show alert message
-  if (getValue) {
-    // Get user value and createTextNode
-    const getuserinput = document.createTextNode(getValue);
+  const getuserinput = document.createTextNode(getValue);
 
-    // Get uservalue with li and display using appendChild
-    node.appendChild(getuserinput);
+  // Create button for remove and style
+  removeButton.textContent = 'Remove';
+  removeButton.style.marginLeft = '15px';
 
-    // Get main list id and display the final value
-    document.querySelector('#listText').appendChild(node);
+  // function remove
+  removeButton.addEventListener('click', function () {
+    node.remove();
+  });
 
-    // clear input text every add text
-    input.value = '';
+  // Get uservalue with li and display using appendChild
+  // display button remove
+  node.appendChild(getuserinput);
+  node.appendChild(removeButton);
 
-    // click without value show alert message
-  } else {
-    alert('Please Enter Text');
-  }
+  // Get all input then display id listText
+  document.querySelector('#listText').appendChild(node);
+
+  // clear input text every add text
+  input.value = '';
 }
+
+// bug fixed if display button remove its remove all item list not specific
